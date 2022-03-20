@@ -1,0 +1,26 @@
+{
+  "name": "express-summative-3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./server.js" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yukie-m/express-summative-3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yukie-m/express-summative-3/issues"
+  },
+  "homepage": "https://github.com/yukie-m/express-summative-3#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.7",
+    "nodemon": "^2.0.15"
+  }
+}
