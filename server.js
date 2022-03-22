@@ -2,7 +2,7 @@ const express = require("express");
 
 const cors = require("cors");
 
-const Products = require("./models/products");
+const Events = require("./models/events");
 
 const app = express();
 app.use(express.json());
@@ -22,43 +22,48 @@ app.use("/api", router);
 
 ////////////////////////ALL ROUTES
 
-router.get("/view-products", function (req, res) {
-  Products.find().then((response) => {
+router.get("/view-events", function (req, res) {
+  Events.find().then((response) => {
     res.json(response);
   });
 });
 
-router.get("/view-product-by-id/:id", function (req, res) {
-  Products.findOne({ _id: req.params.id }).then((response) => {
+router.get("/view-event-by-id/:id", function (req, res) {
+  Events.findOne({ _id: req.params.id }).then((response) => {
     res.json(response);
   });
 });
 
-router.delete("/delete-product-by-id/:id", function (req, res) {
-  Products.deleteOne({ _id: req.params.id }).then((response) => {
-    res.json(response);
-  });
+router.delete("/delete-event-by-id/:id", function (req, res) {
+  Events.deleteOne({ _id: req.params.id })
+    .then((response) => {
+      res.json(response);
+    })
+    .catch((err) => {
+      // if nothing deleted update the app/user
+      return res.json({ deletedCount: 0 });
+    });
 });
 
 // CREATE new product
-router.post("/create-product", function (req, res) {
-  var newProduct = new Products();
+router.post("/create-event", function (req, res) {
+  var newEvent = new Events();
   var theFormData = req.body;
   console.log(">>> ", theFormData);
 
-  Object.assign(newProduct, theFormData);
+  Object.assign(newEvent, theFormData);
 
-  newProduct.save().then((response) => {
+  newEvent.save().then((response) => {
     return res.json(response);
   });
 });
 
 // end CREATE new writer
 
-router.get("/view-product-by-firstname/:name", function (req, res) {
+router.get("/view-event-by-firstname/:name", function (req, res) {
   // console.log(req.params.name);
 
-  Products.findOne({ firstname: req.params.name }).then((response) => {
+  Events.findOne({ firstname: req.params.name }).then((response) => {
     res.json(response);
   });
 });

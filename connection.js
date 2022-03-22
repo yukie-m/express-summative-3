@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 // as defined in 'Database Access' on Atlas/Mongo
 
-const dbname = "yoobee";
+const dbname = "summativeThree";
 const username = "ymat";
 const password = "Yuki-E2917";
 

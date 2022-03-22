@@ -2,23 +2,19 @@ const mongoose = require("mongoose");
 
 var Schema = mongoose.Schema;
 
-var ProductsSchema = new Schema({
-  name: String,
+var EventsSchema = new Schema({
+  eventname: String,
   description: String,
-  seller: String,
+  host: String,
   price: Number,
   status: String,
   thumb: String,
   area: String,
   category: String,
-  condition: String,
-  item: String,
-  collecting: String,
-  size: String,
-  rate: Number,
+  number: Number,
 });
 
 // singular capitalized name for the mongo collection - Products
-const Product = mongoose.model("Product", ProductsSchema);
+const Event = mongoose.model("Event", EventsSchema);
 
-module.exports = Product;
+module.exports = Event;
