@@ -53,9 +53,15 @@ router.post("/create-event", function (req, res) {
 
   Object.assign(newEvent, theFormData);
 
-  newEvent.save().then((response) => {
-    return res.json(response);
-  });
+  newEvent
+    .save()
+    .then((response) => {
+      return res.json(response);
+    })
+    .catch((err) => {
+      // if there was an error return it to the app/user
+      return res.json({ error: true, error_type: err });
+    });
 });
 
 // end CREATE new writer
