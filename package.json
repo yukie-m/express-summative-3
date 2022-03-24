@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./server.js" 
+    "start": "nodemon ./server.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +18,12 @@
   },
   "homepage": "https://github.com/yukie-m/express-summative-3#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
     "cors": "^2.8.5",
     "express": "^4.17.3",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.7",
     "nodemon": "^2.0.15"
   }
