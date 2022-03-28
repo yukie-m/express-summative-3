@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
   try {
-    const dbname = "yoobee";
+    const dbname = "summativeThree";
     const username = "ymat";
     const password = "Yuki-E2917";
 
