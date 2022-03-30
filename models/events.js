@@ -4,17 +4,17 @@ var Schema = mongoose.Schema;
 
 var EventsSchema = new Schema(
   {
-    eventname: String,
+    title: String,
     description: String,
-    organiser: String,
+    host: String,
     price: Number,
     date: String,
     time: String,
-    status: String,
     thumb: String,
-    area: String,
+    location: String,
     category: String,
-    number: Number,
+    attending: Number,
+    link: String,
   },
   { timestamps: true, toJSON: { virtuals: true } }
 );
