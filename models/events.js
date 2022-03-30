@@ -6,15 +6,17 @@ var EventsSchema = new Schema(
   {
     eventname: String,
     description: String,
-    host: String,
+    organiser: String,
     price: Number,
+    date: String,
+    time: String,
     status: String,
     thumb: String,
     area: String,
     category: String,
     number: Number,
   },
-  { timestamps: true }
+  { timestamps: true, toJSON: { virtuals: true } }
 );
 
 // singular capitalized name for the mongo collection - Products
