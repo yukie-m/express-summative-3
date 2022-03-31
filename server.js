@@ -30,7 +30,7 @@ router.get("/view-events", function (req, res) {
 
 router.get("/view-event-by-id/:id", function (req, res) {
   Events.findOne({ _id: req.params.id })
-    .populate("comments")
+    // .populate("comments")
     .then((response) => {
       res.json(response);
     });
