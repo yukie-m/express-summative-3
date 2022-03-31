@@ -15,6 +15,9 @@ var EventsSchema = new Schema(
     category: String,
     attending: Number,
     link: String,
+    follower: String,
+    following: String,
+    virtual: String,
   },
   { timestamps: true, toJSON: { virtuals: true } }
 );
