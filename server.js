@@ -36,6 +36,16 @@ router.get("/view-event-by-id/:id", function (req, res) {
       res.json(response);
     });
 });
+router.get("/view-event-by-category/:category", function (req, res) {
+  console.log(">>>>>>>>> ", req.params.category);
+
+  Events.find()
+    .where("category")
+    .equals(req.params.category)
+    .then((response) => {
+      res.json(response);
+    });
+});
 
 router.delete("/delete-event-by-id/:id", function (req, res) {
   Events.deleteOne({ _id: req.params.id })
@@ -93,10 +103,10 @@ router.post("/create-comment/:id", function (req, res) {
 
 // end CREATE new writer
 
-router.get("/view-event-by-firstname/:name", function (req, res) {
-  // console.log(req.params.name);
+router.get("/view-event-by-name/:name", function (req, res) {
+  console.log(req.params.name);
 
-  Events.findOne({ firstname: req.params.name }).then((response) => {
+  Events.findOne({ name: req.params.name }).then((response) => {
     res.json(response);
   });
 });
