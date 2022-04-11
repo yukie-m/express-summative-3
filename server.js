@@ -47,6 +47,24 @@ router.get("/view-event-by-category/:category", function (req, res) {
     });
 });
 
+// add like
+router.patch("/add-like/:id", function (req, res) {
+  let action = req.body.action;
+  let counter = action == "up" ? 1 : -1;
+
+  Comments.findByIdAndUpdate(
+    req.params.id,
+    { $inc: { likes: counter } },
+    { new: true }
+  )
+    .then((response) => {
+      res.json(response);
+    })
+    .catch((error) => {
+      res.json({ success: false, error: error });
+    });
+});
+
 router.delete("/delete-event-by-id/:id", function (req, res) {
   Events.deleteOne({ _id: req.params.id })
     .then((response) => {
