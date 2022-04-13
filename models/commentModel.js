@@ -6,6 +6,7 @@ var CommentsSchema = new Schema(
   {
     text: String,
     userName: String,
+    userEmail: String,
     userthumb: String,
   },
   { timestamps: true, toJSON: { virtuals: true } }
