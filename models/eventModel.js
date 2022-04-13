@@ -18,7 +18,8 @@ var EventsSchema = new Schema(
     follower: Number,
     following: Number,
     comments: Array,
-    likes: Number
+    likes: Number,
+    userEmail: String,
   },
   { timestamps: true, toJSON: { virtuals: true } }
 );

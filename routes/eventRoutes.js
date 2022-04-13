@@ -16,12 +16,17 @@ router.get("/view-events", function (req, res) {
 });
 
 router.get("/view-event-by-id/:id", function (req, res) {
-  Events.findOne({ _id: req.params.id })
-    // .populate("comments")
-    .then((response) => {
-      res.json(response);
-    });
+  Events.findOne({ _id: req.params.id }).then((response) => {
+    res.json(response);
+  });
 });
+
+router.get("/view-events-by-user/:email", function (req, res) {
+  Events.find({ userEmail: req.params.email }).then((response) => {
+    res.json(response);
+  });
+});
+
 router.get("/view-event-by-category/:category", function (req, res) {
   console.log(">>>>>>>>> ", req.params.category);
 
