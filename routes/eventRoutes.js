@@ -110,8 +110,6 @@ router.post("/create-comment/:id", function (req, res) {
     });
 });
 
-// end CREATE new writer
-
 router.get("/view-event-by-name/:name", function (req, res) {
   console.log(req.params.name);
 
