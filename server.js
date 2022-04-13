@@ -58,6 +58,7 @@ router.patch("/add-like/:id", function (req, res) {
     { new: true }
   )
     .then((response) => {
+      console.log(response);
       res.json(response);
     })
     .catch((error) => {
@@ -129,8 +130,28 @@ router.get("/view-event-by-name/:name", function (req, res) {
   });
 });
 
-// catch bad endpoints on the api route only
+// update
+// find an existing event using _id - then merge with form data
+router.put("/update-event/:id", (req, res) => {
+  Events.findOne({ _id: req.params.id }, function (err, objFromMongoDB) {
+    var data = req.body;
 
+    if (err) {
+      return res.json({ result: false });
+    }
+
+    Object.assign(objFromMongoDB, data);
+    objFromMongoDB.save().then((response) => {
+      res.json({
+        result: response,
+      });
+    });
+  });
+});
+
+//end update
+
+// catch bad endpoints on the api route only
 router.get("/*", (req, res) => {
   return res.json({ result: "hey, no hacking please...." });
 });
