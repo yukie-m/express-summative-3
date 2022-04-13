@@ -47,6 +47,17 @@ router.get("/view-event-by-category/:category", function (req, res) {
     });
 });
 
+router.get("/view-event-by-location/:location", function (req, res) {
+  console.log(">>>>>>>>> ", req.params.location);
+
+  Events.find()
+    .where("location")
+    .equals(req.params.location)
+    .then((response) => {
+      res.json(response);
+    });
+});
+
 // add like
 router.patch("/add-like/:id", function (req, res) {
   let action = req.body.action;
