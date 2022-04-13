@@ -52,7 +52,7 @@ router.patch("/add-like/:id", function (req, res) {
   let action = req.body.action;
   let counter = action == "up" ? 1 : -1;
 
-  Comments.findByIdAndUpdate(
+  Events.findByIdAndUpdate(
     req.params.id,
     { $inc: { likes: counter } },
     { new: true }
